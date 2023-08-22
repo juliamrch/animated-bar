@@ -1,6 +1,0 @@
-
-User-agent: *
-
-{{ if not (eq (getenv "HUGO_ENV")  "production") }}
-Disallow: /
-{{end}}

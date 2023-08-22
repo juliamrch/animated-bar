@@ -1,0 +1,12 @@
+- title: Get Started
+  pages:
+    - title: Quickstart
+    - title: SSH Keys
+
+- title: Section 01
+  pages:
+    - title: Page 01
+
+- title: Section 02
+  pages:
+    - title: Page 02
