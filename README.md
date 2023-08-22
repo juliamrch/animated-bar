@@ -51,3 +51,5 @@ If you want to import old content and build the site, follow this procedure:
 4. Serve the site with `hugo server`
 
 Importing shortcodes is tricky, so no documentation is available right now until test had have been performed.
+
+💡 Add any desired feature using /label ~feature labels.

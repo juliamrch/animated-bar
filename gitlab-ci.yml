@@ -16,10 +16,7 @@ production:deploy:to:clever-cloud:
     clever link -o ${ORGANIZATION_ID} ${CI_PROJECT_NAME} || CREATE_CC_APP=true
     if ${CREATE_CC_APP}; then clever create --type ${CLEVER_KIND_APPLICATION} -o ${ORGANIZATION_ID} ${CI_PROJECT_NAME}; sleep 10; fi
     clever domain add ${CI_PROJECT_NAME}.cleverapps.io || true
-    clever env set CC_PRE_BUILD_HOOK ./hugo.sh
-    clever env set CC_WEBROOT /public
-    clever env set HUGO_VERSION 0.104.3
-
+  
     clever deploy -f
 
 #-------------------------------
