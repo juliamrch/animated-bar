@@ -34,7 +34,7 @@ For example, for `ssh-keys.md`, the following metadata has been added:
 url: "/docs/ssh-keys"
 
 aliases:
-- "/docs"
+- "/docs/ssh-keys"
 ```
 
 Now, no matter the file's localization, the file url will be `http://<domain>/docs/ssh-keys/`.
