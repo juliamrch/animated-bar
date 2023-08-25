@@ -7,6 +7,8 @@ tags:
 - getting-started
 keywords:
 - authentication
+
+url: "/docs/authentication"
 ---
 
 {{</* readfile "/content/partials/authentication.md" */>}}

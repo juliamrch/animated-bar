@@ -2,6 +2,9 @@
   pages:
     - title: Quickstart
     - title: SSH Keys
+    - title: CLI
+    - title: DBaaS
+    - title: Authentication
 
 - title: Section 01
   pages:

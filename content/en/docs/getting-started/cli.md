@@ -8,5 +8,7 @@ tags:
 keywords:
 - cli
 - clever-tools
+
+url: "/docs/cli"
 ---
 {{/*< githubReadme "CleverCloud/clever-tools" */>}}
