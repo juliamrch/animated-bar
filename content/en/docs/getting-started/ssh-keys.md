@@ -10,8 +10,7 @@ keywords:
 
 url: "/docs/ssh-keys"
 
-aliases:
-- "/docs/ssh-keys"
+
 ---
 
 {{/*< readfile "/content/partials/ssh-keys.md" >*/}}
