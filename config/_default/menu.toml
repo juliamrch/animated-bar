@@ -1,13 +1,25 @@
 [[main]]
 identifier = 'home'
 name = 'Home'
-pre = "<i class='icon icon-home'></i>"
+pre = "<i class='fa-solid fa-house'></i>"
 url = '/'
 weight = 1
 
 [[main]]
 identifier = 'docs'
 name = 'Documentation'
-pre = "<i class='icon icon-book'></i>"
+pre = "<i class='fa-solid fa-book-open'></i>"
 url = '/docs/'
 weight = 2
+
+[[main]]
+name = 'API'
+
+url = 'https://www.clever-cloud.com/doc/openapi/'
+weight = 3
+
+[[main]]
+name = 'UI Components'
+
+url = 'https://www.clever-cloud.com/doc/clever-components/?path=/story/🏠-home-readme--page'
+weight = 4
