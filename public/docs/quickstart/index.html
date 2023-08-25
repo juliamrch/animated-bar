@@ -136,7 +136,191 @@
       <div id="article-content">
         
         
-        
+        <p>{{/<em>&lt; readfile &ldquo;/content/partials/authentication.md&rdquo; &gt;</em>/}}</p>
+<h2 id="deploy-your-code">Deploy your code</h2>
+<h3 id="what-is-an-application">What is an application</h3>
+<p>An application is defined on Clever Cloud by the following elements:</p>
+<ul>
+<li>a dedicated language/framework</li>
+<li>a deployment method (FTP and/or Git)</li>
+<li>RAM and CPU consumption, depending on the language or framework used</li>
+<li>an optional configuration file you may add to your project</li>
+</ul>
+<p>If one of these elements is missing, Clever Cloud can&rsquo;t deploy your application properly (except the configuration file, optional in some cases).</p>
+<p>Supported platforms:</p>
+<ul>
+<li>[Docker]({{/<em>&lt; ref &ldquo;/deploy/application/docker/docker&rdquo; &gt;</em>/}})</li>
+<li>[Go]({{/<em>&lt; ref &ldquo;/deploy/application/golang/go&rdquo; &gt;</em>/}})</li>
+<li>[Haskell]({{/<em>&lt; ref &ldquo;/deploy/application/haskell/haskell&rdquo; &gt;</em>/}})</li>
+<li>[Java]({{/<em>&lt; ref &ldquo;/deploy/application/java/&rdquo; &gt;</em>/}}) [Play Framework 1 &amp; 2, Maven, War files… ]</li>
+<li>[Node.js]({{/<em>&lt; ref &ldquo;/deploy/application/javascript/by-framework/nodejs&rdquo; &gt;</em>/}})</li>
+<li>[PHP]({{/<em>&lt; ref &ldquo;/deploy/application/php/php-apps&rdquo; &gt;</em>/}})</li>
+<li>[Python]({{/<em>&lt; ref &ldquo;/deploy/application/python/python_apps&rdquo; &gt;</em>/}})</li>
+<li>[Ruby]({{/<em>&lt; ref &ldquo;/deploy/application/ruby/ruby-rack&rdquo; &gt;</em>/}})</li>
+<li>[Rust]({{/<em>&lt; ref &ldquo;/deploy/application/rust/rust&rdquo; &gt;</em>/}})</li>
+<li>[Scala]({{/<em>&lt; ref &ldquo;/deploy/application/scala/scala&rdquo; &gt;</em>/}})</li>
+<li>[Elixir]({{/<em>&lt; ref &ldquo;/deploy/application/elixir/elixir&rdquo; &gt;</em>/}})</li>
+</ul>
+<h3 id="how-it-works">How it works</h3>
+<p>When an application&rsquo;s code is pushed to git or via FTP, the platform receives it. It then checks the resources’ requirements. If they are complete, the deployment is launched. When finished and successful, the application is up and running.</p>
+<p>The log system retrieves all output from the application and displays it in the logs tab of your application in the Clever Cloud console.</p>
+<h3 id="create-an-application">Create an application</h3>
+<p>In the <a href="https://console.clever-cloud.com/" target="_blank">Clever Cloud Console</a>:</p>
+<ol>
+<li>Select the proper organization you want to add the application to. At this point you must only have the Personal Space but you can create one. Then, click on the <strong>Add an application</strong> button in the <strong>Organization Manager</strong> panel.</li>
+</ol>
+<p>This starts the application creation wizard. If your account has been linked to GitHub, you can select a repository from your GitHub account.</p>
+<p>If you want to deploy an application within a GitHub organisation, first <a href="https://github.com/settings/connections/applications/d96bd8fd996d2ca783cc" target="_blank">grant the Clever Cloud API access to it</a>.</p>
+<ol start="2">
+<li>Select the language or the framework you need</li>
+<li><em>Optional:</em> For PHP applications, you can choose between FTP and Git deployment.</li>
+<li>You will be able to fine-tune your scaling configuration. Horizontal scaling is the number of instances that can run at the same time. Vertical scaling sets the minimum and maximum size the instance can be.</li>
+<li>Enter the name and description of your application.</li>
+<li><em>Optional</em>: The wizard will offer you to [add an add-on]({{/<em>&lt; ref &ldquo;deploy/addon&rdquo; &gt;</em>/}}) to your application.</li>
+<li><em>Optional</em>: The wizard will offer you to [add environment variables]({{/<em>&lt; ref &ldquo;develop/env-variables.md&rdquo; &gt;</em>/}}) to your application.</li>
+</ol>
+<h3 id="git-deployment">Git Deployment</h3>
+<p><em>To deploy via Git, you need it installed on your machine. You can find more information on Git website: <a href="https://git-scm.com" target="_blank">git-scm.com</a></em></p>
+<p><em>Note:</em> During the deployment, the .git folder is automatically deleted to avoid security problems. If you need to know which version is used on the server please use the <code>COMMIT_ID</code> [environment variable]({{/<em>&lt; ref &ldquo;develop/env-variables.md&rdquo; &gt;</em>/}}).</p>
+<p>Follow these steps to deploy your application:</p>
+<ol>
+<li>
+<p>Get the git deployment url in the application information page, which looks like: <code>git+ssh://git@push.&lt;zone&gt;.clever-cloud.com/&lt;your_app_id&gt;.git</code>.</p>
+</li>
+<li>
+<p>In your terminal, go to your application repository. If you do not already track your app with git, start by typing:</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>
+</span></span></code></pre></div><ol start="3">
+<li>Then, link your local repository to Clever Cloud by providing the Git remote url:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote add &lt;remote-name&gt; &lt;your-git-deployment-url&gt;
+</span></span></code></pre></div><ol start="4">
+<li>Push your application to Clever Cloud:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git push &lt;remote-name&gt; &lt;branch-name&gt;:master
+</span></span></code></pre></div><p>{{/<em>&lt; alert &ldquo;warning&rdquo; &ldquo;Warning:&rdquo; &gt;</em>/}}</p>
+<!-- raw HTML omitted -->
+<p>You can see your application <strong>logs</strong> in the dashboard to <strong>monitor the deployment</strong>.</p>
+<p>{{/<em>&lt; alert &ldquo;warning&rdquo; &ldquo;Troubleshooting:&rdquo; &gt;</em>/}}</p>
+<!-- raw HTML omitted -->
+<h4 id="automated-deployment-with-github">Automated Deployment with GitHub</h4>
+<p>Once you have created your application with GitHub, each push on the <code>master</code> branch will trigger a deployment. If you want to deploy an other branch than <code>master</code>, you can go to the <code>information</code> panel of your application and select the default branch to use.</p>
+<p>{{/<em>&lt; image &ldquo;/images/github-deployment-branch.png&rdquo; &ldquo;Github deployment branch select&rdquo; &gt;</em>/}}</p>
+<p>{{/<em>&lt; alert &ldquo;warning&rdquo; &ldquo;Warning:&rdquo; &gt;</em>/}}</p>
+<!-- raw HTML omitted -->
+<p>If you don&rsquo;t find your repository in the list fetched from Github, a workaround is to unlink your account in your profile here : <a href="https://console.clever-cloud.com/users/me/information">https://console.clever-cloud.com/users/me/information</a>, remove <strong>Clever Cloud API</strong> from your Github <a href="https://github.com/settings/applications" target="_blank">Authorized OAuth Apps</a> and link again your Github account to your Clever Cloud account.</p>
+<p><strong>Private GitHub repositories are also supported.</strong></p>
+<p>Caution: in GitHub, private repositories in an ordinary user account are an all-or-nothing deal: either someone has full read write access (i.e., they&rsquo;re a collaborator) or they have no access.</p>
+<p>However, if you set up an organization, create the repo under the aegis of the organization, and then add the collaborator, you have much more fine-grained control (including giving read-only access to a private repository).</p>
+<h3 id="ftp-deployment">FTP Deployment</h3>
+<p>It is possible to deploy via FTP with PHP applications.</p>
+<p>To deploy via FTP, you need an FTP software installed on your machine. <a href="https://filezilla-project.org/" target="_blank">Filezilla</a> is one of them.</p>
+<p>When you have chosen to deploy your application via FTP, a [FS Bucket]({{/<em>&lt; ref &ldquo;/deploy/addon/fs-bucket.md&rdquo; &gt;</em>/}}) has been created with an ID
+matching your application&rsquo;s ID. You will find the FTP credentials in the configuration tab of this particular FS Bucket.</p>
+<p><a href="https://wiki.filezilla-project.org/FileZilla_Client_Tutorial_%28en%29" target="_blank">More documentation about Filezilla</a>.</p>
+<p>{{/<em>&lt; alert &ldquo;warning&rdquo; &ldquo;Warning&rdquo; &gt;</em>/}}</p>
+<!-- raw HTML omitted -->
+<p>{{/<em>&lt; alert &ldquo;danger&rdquo; &ldquo;Disclaimer&rdquo; &gt;</em>/}}</p>
+<!-- raw HTML omitted -->
+<h3 id="application-management-generalities">Application management generalities</h3>
+<p>There are many tabs available in the application&rsquo;s menu:</p>
+<ul>
+<li>Information: General information about your application</li>
+<li>Scalability: Set-up scalability options</li>
+<li>Domain names: Manage custom domain names</li>
+<li>Environment variables: Manage environment variables</li>
+<li>Service dependencies: Link add-ons and applications</li>
+<li>Exposed configuration: Manage exposed environment variables</li>
+<li>Activity: Track last deployments</li>
+<li>Logs: Visualize application&rsquo;s logs</li>
+<li>Metrics: Visualize application&rsquo;s metrics</li>
+<li>Consumption: Visualize your application&rsquo;s consumption.</li>
+</ul>
+<h2 id="create-your-first-add-on">Create your first add-on</h2>
+<p>Applications often requires one or more services in addition to the runtime itself. Add-ons are services you can use independently, or you can link them with your application(s). For instance, you may want to add a database or a caching system to your application or just have a database with no linked application.</p>
+<p>An add-on can be shared by different applications to share data between them. It can be a database shared by two or three applications of your infrastructure for example, or they can be independent.</p>
+<p>Most of the add-ons catalog is provided by Clever Cloud, but vendors are also allowed to provide services external to Clever Cloud ([See how to integrate your SaaS with Clever Cloud]({{/<em>&lt; ref &ldquo;extend/cc-api.md&rdquo; &gt;</em>/}}))</p>
+<h3 id="available-add-ons">Available add-ons</h3>
+<p>Clever Cloud provides multiple add-ons to work with your applications:</p>
+<ul>
+<li>[MySQL]({{/<em>&lt; ref &ldquo;/deploy/addon/mysql/mysql&rdquo; &gt;</em>/}})</li>
+<li>[PostgreSQL]({{/<em>&lt; ref &ldquo;/deploy/addon/postgresql&rdquo; &gt;</em>/}})</li>
+<li>[MongoDB]({{/<em>&lt; ref &ldquo;/deploy/addon/mongodb&rdquo; &gt;</em>/}})</li>
+<li>[FS Bucket]({{/<em>&lt; ref &ldquo;/deploy/addon/fs-bucket&rdquo; &gt;</em>/}})</li>
+<li>[Cellar]({{/<em>&lt; ref &ldquo;/deploy/addon/cellar&rdquo; &gt;</em>/}})</li>
+<li>[Redis]({{/<em>&lt; ref &ldquo;/deploy/addon/redis&rdquo; &gt;</em>/}})</li>
+<li>[Config Provider]({{/<em>&lt; ref &ldquo;/deploy/addon/config-provider&rdquo; &gt;</em>/}})</li>
+</ul>
+<h3 id="add-on-billing">Add-on Billing</h3>
+<p>There are two kinds of billing:</p>
+<ul>
+<li>Per-month billing: Add-ons with fixed resources (storage, CPU and RAM)</li>
+<li>Per-usage billing: Add-ons based on consumption, like [FS Bucket]({{/<em>&lt; ref &ldquo;/deploy/addon/fs-bucket.md&rdquo; &gt;</em>/}}) and [Cellar]({{/<em>&lt; ref &ldquo;/deploy/addon/cellar.md&rdquo; &gt;</em>/}})</li>
+</ul>
+<p>{{/<em>&lt; alert &ldquo;warning&rdquo; &ldquo;Warning on SHARED plans&rdquo; &gt;</em>/}}</p>
+<!-- raw HTML omitted -->
+<p><strong>Note:</strong> Per usage billing will be taken on runtime credits each day, while per-month add-ons will create a new line in the monthly invoice.</p>
+<h3 id="create-an-add-on-for-an-existing-application">Create an add-on for an existing application</h3>
+<p>Here we will assume you want to create a new add-on and link it to your application.</p>
+<p>In order to create it, go to the <a href="https://console.clever-cloud.com/" target="_blank">Clever Cloud Console</a>.
+Go to the organization in which you wan to create the add-on, for example your <a href="https://console.clever-cloud.com/users/me" target="_blank">personal space</a>.</p>
+<ol>
+<li>
+<p>When you are in the organization, click on <strong>Add an add-on</strong>. This space let you create and configure the add-on according to your needs.</p>
+</li>
+<li>
+<p>Choose which <em>type</em> of add-on you want to create. See above the list of available add-ons and their corresponding documentation pages for further information on how they work.</p>
+</li>
+<li>
+<p>Select the plan you need for you add-on. You can find details about the pricing, the capacity of the add-on, &hellip; on this page or in the corresponding documentation page.</p>
+</li>
+<li>
+<p>You will be able to choose with which application you want to link you add-on.</p>
+</li>
+</ol>
+<p>Linking an add-on to an application will provide configuration to the application through [environment variables]({{/<em>&lt; ref &ldquo;/develop/env-variables.md&rdquo; &gt;</em>/}}).
+The environment variables provided by the add-on are available for use in the linked application.</p>
+<p>If you want to use your add-on alone, just don&rsquo;t link it to any application.</p>
+<ol>
+<li>
+<p>Choose the name of the add-on and the region where the add-on will be hosted.</p>
+</li>
+<li>
+<p>Click on the <strong>Create</strong> button and the add-on will now be available in your organization, and corresponding
+environment variables will be available for the applications linked to the add-on you just created.</p>
+</li>
+</ol>
+<h3 id="link-an-existing-add-on-to-your-application">Link an existing add-on to your application</h3>
+<p>To link an already existing add-on with your application, just follow these steps:</p>
+<ol>
+<li>Go in the organization of your application and click on the name of the application you want to link with your add-on.</li>
+<li>Go in the <strong>Service dependencies</strong> section.</li>
+<li>Select the add-on you want to link under the &ldquo;Link addons&rdquo; dropdown menu.</li>
+<li>Click on the <strong>Link</strong> button of the add-on you want to link to your application.</li>
+</ol>
+<h3 id="managing-your-add-on">Managing your add-on</h3>
+<p>Once an add-on is created, at least two management tabs are available in the Clever Cloud console:</p>
+<ul>
+<li>the Information tab</li>
+<li>the Configuration tab</li>
+</ul>
+<p>Other tabs may be available, depending on the add-on type.</p>
+<h4 id="information-screen">Information screen</h4>
+<p>This screen sums-up the characteristics of the selected add-on.
+Features and environment variables (if applicable) are shown.</p>
+<p>{{/<em>&lt; image &ldquo;/images/managing-addons-info.png&rdquo; &ldquo;Example of the information tab of an add-on&rdquo; &gt;</em>/}}</p>
+<h4 id="configuration-screen">Configuration screen</h4>
+<p>Add-ons can be managed from the Configuration tab.
+This screen is managed directly by the provider of the add-on.</p>
+<p>{{/<em>&lt; image &ldquo;/images/managing-addons-config.png&rdquo; &ldquo;Example of the configuration tab of an add-on&rdquo; &gt;</em>/}}</p>
+<h3 id="delete-an-add-on">Delete an add-on</h3>
+<p>To delete an add-on, go to the <em>Configuration</em> page of the add-on, and click on <em>Remove add-on</em>.
+Warning: After deletion of the add-on, all associated data will be removed.</p>
+
       </div>
       
 
@@ -179,7 +363,30 @@
   <span class="btn-close"><i class="icon icon-close"></i></span>
   <div class="sticky">
     <strong><i class="icon icon-toc"></i> On this page</strong>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#deploy-your-code">Deploy your code</a>
+      <ul>
+        <li><a href="#what-is-an-application">What is an application</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#create-an-application">Create an application</a></li>
+        <li><a href="#git-deployment">Git Deployment</a></li>
+        <li><a href="#ftp-deployment">FTP Deployment</a></li>
+        <li><a href="#application-management-generalities">Application management generalities</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-your-first-add-on">Create your first add-on</a>
+      <ul>
+        <li><a href="#available-add-ons">Available add-ons</a></li>
+        <li><a href="#add-on-billing">Add-on Billing</a></li>
+        <li><a href="#create-an-add-on-for-an-existing-application">Create an add-on for an existing application</a></li>
+        <li><a href="#link-an-existing-add-on-to-your-application">Link an existing add-on to your application</a></li>
+        <li><a href="#managing-your-add-on">Managing your add-on</a></li>
+        <li><a href="#delete-an-add-on">Delete an add-on</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </aside>
   </main>
