@@ -1,6 +1,6 @@
 
 title = 'Clever Cloud'
-baseURL = 'https://docura.github.io/'
+baseURL = ''
 
 defaultContentLanguage = 'en'
 languageCode = 'en-us'
@@ -11,4 +11,5 @@ enableGitInfo = false
 
 markup.highlight.noClasses = false
 
+theme = 'docura'
 
