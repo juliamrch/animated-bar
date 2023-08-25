@@ -1,0 +1,203 @@
+@import "../font/inter";
+@import "../icon/default";
+@import "../font/raleway";
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+
+:root {
+  --font-family: 'Inter', sans-serif;
+  --font-family-brand: 'Raleway', sans-serif;
+  --font-family-code: 'Menlo', monospace;
+  
+  
+
+  --background: #ffffff;
+  
+  --color: #355265;
+  --color2: #274457;
+  --color3: #476d86;
+
+  --color-anchor: #328ac1;
+  --color-hover: #4b9dd0;
+
+  --background-fg: #f7f7f7;
+  --background-fg2: #ebebeb;
+  --border-color: #dddddd;
+
+  --home-cover-background: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );
+  
+  
+  
+  
+  /* base16 tomorrow */
+  /*--chroma-base00: #f9f9f9;
+  --chroma-base01: #e0e0e0;
+  --chroma-base02: rgba(159, 218, 159, .2);
+  --chroma-base03: #8e908c;
+  --chroma-base04: #969896;
+  --chroma-base05: #4d4d4c;
+  --chroma-base06: #282a2e;
+  --chroma-base07: #1d1f21;
+  --chroma-base08: #c82829;
+  --chroma-base09: #f5871f;
+  --chroma-base0A: #eab700;
+  --chroma-base0B: #718c00;
+  --chroma-base0C: #3e999f;
+  --chroma-base0D: #4271ae;
+  --chroma-base0E: #8959a8;
+  --chroma-base0F: #a3685a;*/
+}
+
+:root[data-color="dark"] {
+  --background: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );
+  --color: #efefef;
+  --color2: #ffffff;
+  --color3: #b3b3b3;
+ 
+
+
+  --background-fg: #333333;
+  --background-fg2: #1f1f1f;
+  --border-color: rgba(255, 255, 255, .4);
+
+
+
+  /* base16 tomorrow night */
+  --chroma-base00: #080808;
+  --chroma-base01: #393939;
+  --chroma-base02: rgba(159, 218, 159, .1);
+  --chroma-base03: #999999;
+  --chroma-base04: #b4b7b4;
+  --chroma-base05: #cccccc;
+  --chroma-base06: #e0e0e0;
+  --chroma-base07: #ffffff;
+  --chroma-base08: #f2777a;
+  --chroma-base09: #f99157;
+  --chroma-base0A: #ffcc66;
+  --chroma-base0B: #99cc99;
+  --chroma-base0C: #66cccc;
+  --chroma-base0D: #6699cc;
+  --chroma-base0E: #cc99cc;
+  --chroma-base0F: #a3685a;
+}
+
+:root[data-color="night"] {
+  --background: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );
+  --color: #cccccc;
+  --color2: #dedede;
+  --color3: #9d9d9d;
+
+
+  --background-fg: #444444;
+  --background-fg2: #303030;
+  --border-color: rgba(255, 255, 255, 0.2);
+
+
+
+  /* base16 twilight */
+  --chroma-base00: #1e1e1e;
+  --chroma-base01: #323537;
+  --chroma-base02: rgba(159, 218, 159, .1);
+  --chroma-base03: #5f5a60;
+  --chroma-base04: #838184;
+  --chroma-base05: #a7a7a7;
+  --chroma-base06: #c3c3c3;
+  --chroma-base07: #ffffff;
+  --chroma-base08: #cf6a4c;
+  --chroma-base09: #cda869;
+  --chroma-base0A: #f9ee98;
+  --chroma-base0B: #8f9d6a;
+  --chroma-base0C: #afc4db;
+  --chroma-base0D: #7587a6;
+  --chroma-base0E: #9b859d;
+  --chroma-base0F: #9b703f;
+}
+
+
+:root[data-color="light"] .icon:not(.icon-colored) {
+
+  filter: invert(30%) sepia(24%) saturate(758%) hue-rotate(160deg) brightness(89%) contrast(90%);
+}
+
+:root[data-color="dark"] .icon:not(.icon-colored) {
+  
+  filter: invert(97%) sepia(0%) saturate(3231%) hue-rotate(294deg) brightness(118%) contrast(87%);
+}
+
+:root[data-color="night"] .icon:not(.icon-colored) {
+
+  filter: invert(100%) sepia(2%) saturate(1090%) hue-rotate(294deg) brightness(83%) contrast(92%);
+}
+
+// Set header logo colors according to themes
+
+:root[data-color="light"] #site-header img:not(.icon-colored) {
+  --color: #13172E;
+}
+
+:root[data-color="dark"] #site-header img:not(.icon-colored) {
+  filter: invert(97%) saturate(3231%) hue-rotate(294deg) brightness(118%) contrast(87%);
+}
+
+:root[data-color="night"] #site-header img:not(.icon-colored) {
+  filter: invert(100%) sepia(2%) saturate(1090%) hue-rotate(294deg) brightness(83%) contrast(92%);
+}
+
+:root[data-color="dark"] #site-header img:not(.icon-colored) {
+  filter: invert(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+:root[data-color="night"] #site-header img:not(.icon-colored) {
+  filter: invert(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+.marquee {
+  
+  position: relative;
+  display: flex;
+  
+  user-select: none;
+  gap: 1rem;;
+  margin-block: 3rem;
+}
+
+.marquee__content {
+  display: flex;
+  justify-content: space-around;
+
+  flex-shrink: 0;
+  gap: 1rem;
+  min-width: 100%;
+  animation: scroll 10s linear infinite;
+  flex-wrap: wrap;
+
+}
+.marquee:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 1rem));
+  }
+}
+
+.block:not(:last-child) {
+  margin-bottom: 2rem;
+}
+/*icon-cover {
+  padding: 40px 20px;
+  width: 100vw;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 12px;
+ 
+  position: relative;
+  
+}*/
