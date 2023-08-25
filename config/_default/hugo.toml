@@ -1,6 +1,6 @@
 
 title = 'Clever Cloud Documentation'
-baseURL = ''
+baseURL = 'https://testing-docura.cleverapps.io/'
 
 defaultContentLanguage = 'en'
 languageCode = 'en-us'
