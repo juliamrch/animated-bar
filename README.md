@@ -1,7 +1,7 @@
 
 # Docura Theme for Clever Cloud
 
-This repo is a migartion test for Clever Cloud. Files are being progressively imported to fit into the theme.
+This repo is a migration test for Clever Cloud. Files are being progressively imported to fit into the theme.
 
 ## How to...
 
