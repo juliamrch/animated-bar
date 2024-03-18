@@ -1,7 +1,7 @@
 
 # Docura Theme for Clever Cloud
 
-This repo is a migration test for Clever Cloud. Files are being progressively imported to fit into the theme.
+This repo is an experiment for a modern approach to marquee effects. The idea was born from [this post](https://ryanmulligan.dev/blog/css-marquee/) by Ryan Mulligan.
 
 ## How to...
 
